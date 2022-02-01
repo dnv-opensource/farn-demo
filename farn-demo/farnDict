@@ -1,0 +1,73 @@
+/*---------------------------------*- C++ -*----------------------------------*\
+filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
+\*----------------------------------------------------------------------------*/
+_environment
+{
+    CASEDIR                   cases;
+    DUMPDIR                   dump;
+    LOGDIR                    logs;
+    RESULTDIR                 results;
+    TEMPLATEDIR               template;
+}
+_layers
+{
+    lhsVar
+    {
+        _sampling
+        {
+            _type             uniformLhs;
+            _names
+            (
+                minuend       subtrahend          dividend
+            );
+            _ranges
+            (
+                (
+                    -10               10
+                )
+                (
+                    -10               10
+                )
+                (
+                    -20              20
+                )
+            );
+            _includeBoundingBox        true;
+            _numberOfSamples        20;
+        }
+        _comment              'lhs sampling demo case dividend / (minuend - subtrahend) and filtering avoiding div_by_zero';
+        _condition
+        {
+            _action           exclude;
+            _filter           'minuend - subtrahend == 0';
+        }
+        _commands
+        {
+            copy
+            (
+                'copy %TEMPLATEDIR%\caseDict .'
+                'copy %TEMPLATEDIR%\winjob.cmd .'
+            );
+            parse
+            (
+                'dictParser caseDict --verbose --log logs\dictParser.log'
+            );
+            build
+            (
+                'ospCaseBuilder parsed.caseDict --verbose --log logs\ospCaseBuilder.log'
+            );
+            run
+            (
+                'cosim run OspSystemStructure.xml -b 0 -d 10'
+            );
+            runjob
+            (
+                .\winjob.cmd
+            );
+            post
+            (
+                'watchCosim watchDict -d --log logs\watchCosim.log'
+            );
+        }
+    }
+}
