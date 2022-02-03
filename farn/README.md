@@ -44,12 +44,22 @@ Execute the 'parse' command to parse the caseDict file in all case folders:
 $ farn sampled.farnDict --execute parse
 ~~~
 
-Note that executing the 'parse' command is optional.
+Note that the 'parse' step is optional:
 ospCaseBuilder will read also a non-parsed caseDict and include a paramDict specified therein (if so) on-the-fly.
 
-However, the 'build' command defined in farnDict will need to reflect one or the other case:
+
+## Execute 'build' command
+
+Execute the 'build' command to build the OSP files in all case folders:
+
+~~~sh
+$ farn sampled.farnDict --execute build
+~~~
+
+Note that the 'build' command in farnDict needs to be adapted depending on whether you have a distinct 'parse' step or not:
 
 If you include the 'parse' step, the 'build' command in farnDict should point to the parsed. version of the caseDict file.
+
 If you omit the 'parse' step, the 'build' command in farnDict should point to the the non-parsed caseDict file:
 
 ~~~cpp
@@ -61,15 +71,6 @@ _commands
         'ospCaseBuilder parsed.caseDict'  // use parsed.caseDict if you explicitely executed the 'parse' step before
         'ospCaseBuilder caseDict'         // use caseDict if you did NOT execute the 'parse' step before
     );
-~~~
-
-
-## Execute 'build' command
-
-Execute the 'build' command to build the OSP files in all case folders:
-
-~~~sh
-$ farn sampled.farnDict --execute build
 ~~~
 
 
