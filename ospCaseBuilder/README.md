@@ -1,8 +1,10 @@
-#  Demo: Using ospCaseBuilder to build an OSP simulation case
+#  ospCaseBuilder Demo
+
+Demo showing the usage of ospCaseBuilder to build an OSP simulation case.
 
 ## Prepare
 
-edit caseDict and adjust libSource variable to point to the library folder containing the fmu's
+Edit caseDict and adjust libSource variable to point to the library folder containing the fmu's.
 
 ~~~cpp
 _environment
@@ -12,21 +14,21 @@ _environment
 }
 ~~~
 
-Inside ospCaseBuilder-demo folder, run
+Run
 
 ~~~sh
-ospCaseBuilder --help
+$ ospCaseBuilder --help
 ~~~
 
 to see all options.
 
+add -v or --verbose to log INFO and DEBUG messages to console.
+
 
 ## Inspect fmu's
 
-run
-
 ~~~sh
-ospCaseBuilder --inspect caseDict --verbose
+$ ospCaseBuilder --inspect caseDict --verbose
 ~~~
 
 with
@@ -46,46 +48,52 @@ with
 You can call ospCaseBuilder with the --graph option to optionally create a pdf image with the system structure dependency graph:
 
 ~~~sh
-ospCaseBuilder caseDict --graph
+$ ospCaseBuilder caseDict --graph
 ~~~
 
 
 ## Build the OSP case
 
-To build the OSP case, i.e. the ModelDescription and OspSystemStructure XML files, run
-
 ~~~sh
-ospCaseBuilder caseDict --verbose
+$ ospCaseBuilder caseDict --verbose
 ~~~
 
 
 ## Run the OSP case with cosim
-run
+
+Run
 
 ~~~sh
-cosim help
-cosim run --help
-cosim run OspSystemStructure.xml -b 0 -d 10 --real-time --log-level=debug
-cosim run OspSystemStructure.xml -b 0 -d 10
-~~~
-
-and wait for results.
-
-Optionally, open a second terminal and
-
-## Watch cosim
-run
-
-~~~sh
-watchCosim --help
+$ cosim help
+$ cosim run --help
 ~~~
 
 to get all options.
 
-run
+Run one of the following commands to execute cosim:
 
 ~~~sh
-watchCosim watchDict -pd
+$ cosim run OspSystemStructure.xml -b 0 -d 10 --real-time --log-level=debug
+$ cosim run OspSystemStructure.xml -b 0 -d 10
+~~~
+
+
+## Watch cosim
+
+watchCosim allows you to monitor the running simulations, dump results and plot a graph.
+
+Run
+
+~~~sh
+$ watchCosim --help
+~~~
+
+to get all options.
+
+Run
+
+~~~sh
+$ watchCosim watchDict -pd
 ~~~
 
 to plot and dump the results.

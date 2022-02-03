@@ -5,7 +5,7 @@ Demo showing the usage of farn to generate, build and execute multiple OSP simul
 
 ## Prepare
 
-run
+Run
 
 ~~~sh
 $ farn --help
