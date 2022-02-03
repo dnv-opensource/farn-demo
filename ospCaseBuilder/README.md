@@ -14,7 +14,7 @@ _environment
 
 Inside ospCaseBuilder-demo folder, run
 
-~~~ps
+~~~sh
 ospCaseBuilder --help
 ~~~
 
@@ -25,7 +25,7 @@ to see all options.
 
 run
 
-~~~ps
+~~~sh
 ospCaseBuilder --inspect caseDict --verbose
 ~~~
 
@@ -45,7 +45,7 @@ with
 
 You can call ospCaseBuilder with the --graph option to optionally create a pdf image with the system structure dependency graph:
 
-~~~ps
+~~~sh
 ospCaseBuilder caseDict --graph
 ~~~
 
@@ -54,7 +54,7 @@ ospCaseBuilder caseDict --graph
 
 To build the OSP case, i.e. the ModelDescription and OspSystemStructure XML files, run
 
-~~~ps
+~~~sh
 ospCaseBuilder caseDict --verbose
 ~~~
 
@@ -62,7 +62,7 @@ ospCaseBuilder caseDict --verbose
 ## Run the OSP case with cosim
 run
 
-~~~ps
+~~~sh
 cosim help
 cosim run --help
 cosim run OspSystemStructure.xml -b 0 -d 10 --real-time --log-level=debug
@@ -76,7 +76,7 @@ Optionally, open a second terminal and
 ## Watch cosim
 run
 
-~~~ps
+~~~sh
 watchCosim --help
 ~~~
 
@@ -84,7 +84,7 @@ to get all options.
 
 run
 
-~~~ps
+~~~sh
 watchCosim watchDict -pd
 ~~~
 
