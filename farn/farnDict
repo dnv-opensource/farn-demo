@@ -66,7 +66,7 @@ _layers
             );
             post
             (
-                'watchCosim watchDict -d --log logs\watchCosim.log --log-level INFO'
+                'watchCosim watchDict -pd --log logs\watchCosim.log --log-level INFO'
             );
         }
     }
