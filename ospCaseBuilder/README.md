@@ -28,14 +28,14 @@ add -v or --verbose to log INFO and DEBUG messages to console.
 ## Inspect fmu's
 
 ~~~sh
-$ ospCaseBuilder --inspect caseDict --verbose
+$ ospCaseBuilder --inspect caseDict --verbose --log inspect.log --log-level INFO
 ~~~
 
 with
 * --inspect: to inspect the connectors of the fmu'
+* --verbose: log all INFO and DEBUG messages to the console
 * --log: optional log file name
-* --log-level=INFO: log all informational output into log file
-* --verbose: see all INFO (DEBUG) on the screen
+* --log-level: log level to be used for the log file [DEBUG, INFO, WARNING, ERROR]
 
 
 ## Detail out the caseDict
@@ -55,7 +55,7 @@ $ ospCaseBuilder caseDict --graph
 ## Build the OSP case
 
 ~~~sh
-$ ospCaseBuilder caseDict --verbose
+$ ospCaseBuilder caseDict
 ~~~
 
 
@@ -73,7 +73,7 @@ to get all options.
 Run one of the following commands to execute cosim:
 
 ~~~sh
-$ cosim run OspSystemStructure.xml -b 0 -d 10 --real-time --log-level=debug
+$ cosim run OspSystemStructure.xml -b 0 -d 10 --real-time --log-level debug
 $ cosim run OspSystemStructure.xml -b 0 -d 10
 ~~~
 

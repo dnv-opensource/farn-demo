@@ -149,7 +149,7 @@ run
 {
     simulation
     {
-        name                  demoCase;
+        name                  ospCaseBuilder_demo;
         startTime             0;
         stopTime              10;
         baseStepSize          0.01;
