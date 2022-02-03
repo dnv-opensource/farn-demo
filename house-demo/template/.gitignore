@@ -1,0 +1,8 @@
+*.xml*
+*.ssd
+*.csv
+*callGraph*
+*.fmu
+watchDict
+statisticsDict
+results
