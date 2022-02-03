@@ -30,12 +30,12 @@ https://github.com/open-simulation-platform/cosim-cli/releases
 
 Unzip the archive and copy its content into a suitable folder of your choice, e.g.
 ~~~sh
-C:\osp\cosim\
+C:\path\of\your\choice\osp\cosim\
 ~~~
 
 Add the bin path to USER PATH environment variable:
 ~~~sh
-C:\osp\cosim\bin
+C:\path\of\your\choice\osp\cosim\bin
 ~~~
 
 
@@ -43,7 +43,7 @@ C:\osp\cosim\bin
 
 Change dir to the location where you want farn-demo to be cloned and created in:
 ~~~sh
-cd path/to/my/dev
+cd C:\path\to\my\dev
 ~~~
 
 Clone the farn-demo repository from GitHub:
@@ -53,7 +53,7 @@ git clone https://github.com/dnv-opensource/farn-demo
 
 this should create the 'farn-demo' project inside path/to/my/dev:
 ~~~sh
-path/to/my/dev/farn-demo
+C:\path\to\my\dev\farn-demo
 ~~~
 
 Change dir into it:
@@ -63,7 +63,7 @@ cd farn-demo
 
 You should now be here, in the root folder of the 'farn-demo' project:
 ~~~sh
-path/to/my/dev/farn-demo
+C:\path\to\my\dev\farn-demo
 ~~~
 
 
