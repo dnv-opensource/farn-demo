@@ -13,7 +13,9 @@ $ farn --help
 
 to see all options.
 
-run with the --test option to generate/process only the first case for debug purposes
+run with --test option to generate/process only the first case for debug purposes.
+
+add -v or --verbose to log INFO and DEBUG messages to console.
 
 
 ## Create samples
