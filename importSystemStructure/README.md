@@ -1,6 +1,8 @@
-#  Demo: Using ospCaseBuilder to build house-demo
+#  importSystemStructure Demo
 
-This demo employs osp's house-demo to build up a caseDict what can be used by a subsequent farn process.
+Demo showing the usage of importSystemStructure to import the OspSystemStructure.xml from the OSP house-demo.
+
+After the import is done, the demo will also show how to parameterize the caseDict and set up farn to generate, build and execute multiple OSP simulation cases.
 
 
 # Import System Structure from OSP house demo
@@ -17,34 +19,35 @@ The main steps are
 
 ## Prepare
 
-We assume that the folder structure looks like this:
+We assume the folder structure looks like this:
 ~~~
 |-- README.md
 |-- farnDict
-|-- src
+|-- resetDemo.bat
+|-- house
 |   |-- Clock.fmu
 |   |-- InnerWall.fmu
 |   |-- OspSystemStructure.xml
 |   |-- OuterWall1.fmu
 |   |-- OuterWall2.fmu
-|   |-- PlotConfig.json
 |   |-- Room1.fmu
 |   |-- Room2.fmu
 |   |-- SystemStructure.ssd
 |   `-- TempController.fmu
 `-- template
-    |-- README.md
-    `-- resetDemo.bat
+    |-- cleanUpTemplateFolder.bat
+    |-- paramDict
+    `-- winjob.cmd
 ~~~
+
+
+## Import OspSystemStructure.xml
 
 For the import of the house demo system structure, jump into the template folder:
 
 ~~~sh
 $ cd template
 ~~~
-
-
-## Import OspSystemStructure.xml
 
 Run
 
