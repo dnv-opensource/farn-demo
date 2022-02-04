@@ -93,6 +93,7 @@ $ farn sampled.farnDict --execute runjob
 ## Execute 'post' command
 
 Execute the 'post' command to run any postprocessing jobs or, as in this demo case, i.e. the watchDict commandline script:
+(Be aware this step takes a bit longer.  Be patient ;-) )
 
 ~~~sh
 $ farn sampled.farnDict --execute post

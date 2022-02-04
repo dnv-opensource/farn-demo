@@ -1,5 +1,4 @@
-*.csv
-*callGraph*
-*.fmu
-watchDict
-results
+*sampled.*
+*caseList*
+cases
+logs

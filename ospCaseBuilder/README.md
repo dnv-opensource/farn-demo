@@ -80,7 +80,7 @@ $ cosim run OspSystemStructure.xml -b 0 -d 10
 
 ## Watch cosim
 
-watchCosim allows you to monitor the running simulations, dump results and plot a graph.
+watchCosim allows you to monitor a running simulation, dump results and plot a graph.
 
 Run
 
@@ -90,7 +90,14 @@ $ watchCosim --help
 
 to get all options.
 
-Run
+Optionally, to watch the progress of a long lasting simulation you can run watchCosim with option -c:
+(Important: Use a separate, second Terminal to run this command.)
+
+~~~ps
+$ watchCosim watchDict -c
+~~~
+
+Finally, run
 
 ~~~sh
 $ watchCosim watchDict -pd

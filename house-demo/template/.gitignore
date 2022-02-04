@@ -1,8 +1,10 @@
-*.xml*
-*.ssd
 *.csv
 *callGraph*
 *.fmu
+*.log
+*.xml
+*.ssd
+caseDict
 watchDict
 statisticsDict
 results

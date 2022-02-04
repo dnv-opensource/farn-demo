@@ -42,16 +42,16 @@ _layers
         {
             copy
             (
-                'copy %TEMPLATEDIR%\OspSystemStructure.xml-Dict .'
+                'copy %TEMPLATEDIR%\caseDict .'
                 'copy %TEMPLATEDIR%\winjob.cmd .'
             );
             parse
             (
-                'dictParser OspSystemStructure.xml-Dict --verbose --log logs\dictParser.log'
+                'dictParser caseDict --verbose --log logs\dictParser.log'
             );
             build
             (
-                'ospCaseBuilder parsed.OspSystemStructure.xml-Dict --verbose --log logs\ospCaseBuilder.log'
+                'ospCaseBuilder parsed.caseDict --verbose --log logs\ospCaseBuilder.log'
             );
             run
             (
@@ -63,7 +63,7 @@ _layers
             );
             post
             (
-                'watchCosim watchDict -dp --log logs\watchCosim.log'
+                'watchCosim watchDict -pd --log logs\watchCosim.log --log-level INFO'
             );
         }
     }
