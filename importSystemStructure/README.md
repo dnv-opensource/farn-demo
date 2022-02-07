@@ -68,7 +68,7 @@ and set root to '.' (current directory), see following example:
 ~~~cpp
 _environment
 {
-    libSource                 'C:\Dev\farn-demo\house-demo\house';  //adjust this path to point to the library folder containing the fmu's
+    libSource                 'C:\Dev\farn-demo\importSystemStructure\house';  //adjust this path to point to the library folder containing the fmu's
     root                     .;
 }
 ~~~
