@@ -2,9 +2,9 @@
 demo cases to get started with farn
 
 
-## Install Python 3.9
+## Install Python 3.10
 
-* Download from https://www.python.org/downloads/release/python-399/
+* Download from https://www.python.org/downloads/release/python-3102/
 * Install
 
 ## Install Graphviz system library
