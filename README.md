@@ -76,9 +76,14 @@ Create virtual environment:
 $ python -m venv .venv
 ~~~
 
-Activate the virtual environment:
+Activate the virtual environment: <br>
+..on Windows:
 ~~~sh
-$ .venv\Scripts\activate
+> .venv\Scripts\activate.bat
+~~~
+..on Linux:
+~~~sh
+$ source .venv/bin/activate
 ~~~
 
 Update pip and setuptools:
