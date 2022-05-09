@@ -90,10 +90,10 @@ $ python -m pip install --upgrade pip setuptools
 ## pip install farn
 
 ~~~sh
-$ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ farn
+$ pip install farn
 ~~~
 
 
 ## farn Documentation on GitHub
 
-https://crispy-tribble-285142b5.pages.github.io
+https://dnv-opensource.github.io/farn/
