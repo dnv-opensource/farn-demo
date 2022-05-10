@@ -1,11 +1,10 @@
 # farn-demo
-demo cases to get started with farn
+demo cases to get started with [farn][farn_docs]
 
 
-## Install Python 3.10
+## Install Python
 
-* Download from https://www.python.org/downloads/release/python-3102/
-* Install
+* Install Python 3.9 or higher, i.e. [Python 3.9](https://www.python.org/downloads/release/python-3912/) or [Python 3.10](https://www.python.org/downloads/release/python-3104/)
 
 ## Install Graphviz system library
 
@@ -71,6 +70,11 @@ Convention:
 	1. Create the virtual environment in the project root folder, so that it resides with the project it is created for.
 	2. Name it '.venv'
 
+Update pip and setuptools on your system Python:
+~~~sh
+$ python -m pip install --upgrade pip setuptools
+~~~
+
 Create virtual environment:
 ~~~sh
 $ python -m venv .venv
@@ -86,7 +90,7 @@ Activate the virtual environment: <br>
 $ source .venv/bin/activate
 ~~~
 
-Update pip and setuptools:
+Update pip and setuptools in the virtual environment:
 ~~~sh
 $ python -m pip install --upgrade pip setuptools
 ~~~
@@ -102,3 +106,9 @@ $ pip install farn
 ## farn Documentation on GitHub
 
 https://dnv-opensource.github.io/farn/
+
+
+<!-- Markdown link & img dfn's -->
+[dictIO_docs]: https://dnv-opensource.github.io/dictIO/
+[ospx_docs]: https://dnv-opensource.github.io/ospx/
+[farn_docs]: https://dnv-opensource.github.io/farn/
