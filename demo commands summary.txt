@@ -1,0 +1,25 @@
+cd farn-demo
+ae
+cd farn
+farn farnDict --sample
+farn sampled.farnDict --generate
+farn sampled.farnDict --execute copy
+farn sampled.farnDict --execute parse
+farn sampled.farnDict --execute build
+farn sampled.farnDict --execute run -q
+farn sampled.farnDict --execute post
+./resetDemo.bat
+
+cd ospCaseBuilder
+ospCaseBuilder --inspect caseDict --verbose --log inspect.log --log-level INFO
+ospCaseBuilder caseDict --graph
+ospCaseBuilder caseDict
+cosim run OspSystemStructure.xml -b 0 -d 10 --real-time --log-level debug
+watchCosim watchDict -pd
+./resetDemo.bat
+
+cd importSystemStructure
+cd template
+importSystemStructure ..\house\OspSystemStructure.xml
+cd ..
+./resetDemo.bat
