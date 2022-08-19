@@ -5,8 +5,7 @@ filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
 
 _environment
 {
-    libSource                 'C:\Dev\farn-demo\library';  //adjust this path to point to the library folder containing the fmu's
-    root                     .;
+    libSource                 C:\Dev\farn-demo\library;  //adjust this path to point to the library folder containing the fmu's
 }
 systemStructure
 {
