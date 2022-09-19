@@ -3,9 +3,7 @@ ae
 cd farn
 farn farnDict --sample
 farn sampled.farnDict --generate
-farn sampled.farnDict --execute copy
-farn sampled.farnDict --execute parse
-farn sampled.farnDict --execute build
+farn sampled.farnDict --execute prepare
 farn sampled.farnDict --execute run -q
 farn sampled.farnDict --execute post
 ./resetDemo.bat
