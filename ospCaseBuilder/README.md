@@ -10,7 +10,6 @@ Edit caseDict and adjust libSource variable to point to the library folder conta
 _environment
 {
     libSource                 'C:\Dev\farn-demo\library';  //adjust this path to point to the library folder containing the fmu's
-    root                     .;
 }
 ~~~
 
@@ -28,12 +27,11 @@ add -v or --verbose to log INFO and DEBUG messages to console.
 ## Inspect fmu's
 
 ~~~sh
-$ ospCaseBuilder --inspect caseDict --verbose --log inspect.log --log-level INFO
+$ ospCaseBuilder --inspect caseDict --log inspect.log --log-level INFO
 ~~~
 
 with
 * --inspect: to inspect the connectors of the fmu'
-* --verbose: log all INFO and DEBUG messages to the console
 * --log: optional log file name
 * --log-level: log level to be used for the log file [DEBUG, INFO, WARNING, ERROR]
 
@@ -73,7 +71,7 @@ to get all options.
 Run one of the following commands to execute cosim:
 
 ~~~sh
-$ cosim run OspSystemStructure.xml -b 0 -d 10 --real-time --log-level debug
+$ cosim run OspSystemStructure.xml -b 0 -d 10 --real-time --log-level info
 $ cosim run OspSystemStructure.xml -b 0 -d 10
 ~~~
 

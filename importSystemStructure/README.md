@@ -62,14 +62,12 @@ Rename "caseDict_imported_from_OspSystemStructure_xml" to simply "caseDict".
 
 ## Adjust library source directory in caseDict
 
-Edit caseDict and adjust the libSource variable to point to the library folder containing the fmu's
-and set root to '.' (current directory), see following example:
+Edit caseDict and adjust the libSource variable to point to the library folder containing the fmu's, see following example:
 
 ~~~cpp
 _environment
 {
     libSource                 'C:\Dev\farn-demo\importSystemStructure\house';  //adjust this path to point to the library folder containing the fmu's
-    root                     .;
 }
 ~~~
 
@@ -105,8 +103,6 @@ OuterWall1
     {
         T_outside
         {
-            causality       parameter;
-            variability     fixed;
             start           5.3;
         }
     }
@@ -148,8 +144,6 @@ OuterWall1
     {
         T_outside
         {
-            causality       parameter;
-            variability     fixed;
             start           $OuterWall1_T_outside;
         }
     }
@@ -158,7 +152,7 @@ OuterWall1
 
 Repeat the same steps for the initial value of "T_outside" of the "OuterWall2" component.
 
-Make sure that the $xyz references exactly match the fully qualified names of the referenced variables in the paramDict.
+Make sure that the $... references exactly match the fully qualified names of the referenced variables in the paramDict.
 
 
 ## Create a dependency graph image using graphviz (optional)
@@ -191,7 +185,7 @@ to get all options.
 Run the following command to execute cosim:
 
 ~~~sh
-$ cosim run OspSystemStructure.xml -b 0 -d 360 --log-level=debug
+$ cosim run OspSystemStructure.xml -b 0 -d 360 --log-level=info
 ~~~
 
 

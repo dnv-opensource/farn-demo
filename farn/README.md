@@ -56,7 +56,7 @@ _commands
     (
         ...
         'ospCaseBuilder parsed.caseDict'  // use parsed.caseDict if you explicitely executed the 'parse' step before
-        'ospCaseBuilder caseDict'         // use caseDict if you did NOT execute the 'parse' step before
+        'ospCaseBuilder caseDict'         // use caseDict if you omitted the explicit 'parse' step before
         ...
     );
 ~~~

@@ -47,8 +47,8 @@ _layers
             (
                 'copy %TEMPLATEDIR%\caseDict .'
                 'copy %TEMPLATEDIR%\winjob.cmd .'
-                'dictParser caseDict --verbose --log logs\dictParser.log --log-level INFO'
-                'ospCaseBuilder parsed.caseDict --verbose --log logs\ospCaseBuilder.log --log-level INFO'
+                'dictParser caseDict --log logs\dictParser.log --log-level INFO'
+                'ospCaseBuilder parsed.caseDict --log logs\ospCaseBuilder.log --log-level INFO'
             );
             run
             (

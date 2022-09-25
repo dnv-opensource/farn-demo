@@ -7,4 +7,5 @@ del *.ssd
 del watchDict
 del statisticsDict
 del caseDict_imported_from_OspSystemStructure_xml
+del caseDict
 rmdir /S /Q results
