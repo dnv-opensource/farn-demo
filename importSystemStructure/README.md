@@ -62,12 +62,14 @@ Rename "caseDict_imported_from_OspSystemStructure_xml" to simply "caseDict".
 
 ## Adjust library source directory in caseDict
 
-Edit caseDict and adjust the libSource variable to point to the library folder containing the fmu's, see following example:
+Depending on your local environment, it can be necessary to adjust the libSource path in caseDict. <br>
+The libSource path points to the library folder containing the referenced fmu's.
+To adjust the libSource path in caseDict, if necessary, as in following example:
 
 ~~~cpp
 _environment
 {
-    libSource                 'C:\Dev\farn-demo\importSystemStructure\house';  //adjust this path to point to the library folder containing the fmu's
+    libSource                 C:\Dev\farn-demo\importSystemStructure\house;  //adjust this path to point to the library folder containing the fmu's
 }
 ~~~
 

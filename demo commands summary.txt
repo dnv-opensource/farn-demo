@@ -23,10 +23,6 @@ ren caseDict_imported_from_OspSystemStructure_xml caseDict
 
 [edit caseDict:]
 #include '.\paramDict'
-_environment
-{
-    libSource                 'C:\Dev\farn-demo\importSystemStructure\house';
-}
 ...
 systemStructure
 {
