@@ -125,8 +125,6 @@ systemStructure
             {
                 constVal.IN
                 {
-                    causality           parameter;
-                    variability         fixed;
                     start               $minuend;
                 }
             }
@@ -146,8 +144,6 @@ systemStructure
             {
                 constVal.IN
                 {
-                    causality           parameter;
-                    variability         fixed;
                     start               $subtrahend;
                 }
             }
@@ -167,8 +163,6 @@ systemStructure
             {
                 constVal.IN
                 {
-                    causality           parameter;
-                    variability         fixed;
                     start               $dividend;
                 }
             }
