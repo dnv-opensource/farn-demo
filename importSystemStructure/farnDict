@@ -40,22 +40,16 @@ _layers
         }
         _commands
         {
-            copy
+            prepare
             (
                 'copy %TEMPLATEDIR%\caseDict .'
                 'copy %TEMPLATEDIR%\winjob.cmd .'
-            );
-            parse
-            (
-                'dictParser caseDict --verbose --log logs\dictParser.log'
-            );
-            build
-            (
-                'ospCaseBuilder parsed.caseDict --verbose --log logs\ospCaseBuilder.log'
+                'dictParser caseDict --log logs\dictParser.log --log-level INFO'
+                'ospCaseBuilder parsed.caseDict --log logs\ospCaseBuilder.log --log-level INFO'
             );
             run
             (
-                'cosim run OspSystemStructure.xml -b 0 -d 360'
+                'cosim run OspSystemStructure.xml -b 0 -d 10'
             );
             runjob
             (
