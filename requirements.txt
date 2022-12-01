@@ -3,6 +3,6 @@ flake8>=6.0
 pep8-naming>=0.13
 isort>=5.10.1
 
-farn>=0.2.3
+farn>=0.2.4
 
 # ../farn
