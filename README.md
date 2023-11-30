@@ -15,9 +15,9 @@ demo cases to get started with [farn][farn_docs]
 Make sure Graphviz is properly added to your system PATH variables.
 The following entry needs to exist in the USER PATH environment variable - add or adjust it if necessary:
 
-~~~sh
+```sh
 %ProgramFiles%\Graphviz\bin
-~~~
+```
 
 
 ## Install OSP cosim
@@ -26,42 +26,42 @@ The following entry needs to exist in the USER PATH environment variable - add o
 * https://github.com/open-simulation-platform/cosim-cli/releases
 
 Unzip the archive and copy its content into a suitable folder of your choice, e.g.
-~~~sh
+```sh
 C:\path\of\your\choice\osp\cosim\
-~~~
+```
 
 Add the bin path to USER PATH environment variable:
-~~~sh
+```sh
 C:\path\of\your\choice\osp\cosim\bin
-~~~
+```
 
 
 ## Clone the farn-demo repository
 
 Change dir to the location where you want farn-demo to be cloned and created in:
-~~~sh
-$ cd C:\path\to\my\dev
-~~~
+```sh
+cd C:\path\to\my\dev
+```
 
 Clone the farn-demo repository from GitHub:
-~~~sh
-$ git clone https://github.com/dnv-opensource/farn-demo
-~~~
+```sh
+git clone https://github.com/dnv-opensource/farn-demo
+```
 
 this should create the 'farn-demo' project inside path/to/my/dev:
-~~~sh
+```sh
 C:\path\to\my\dev\farn-demo
-~~~
+```
 
 Change dir into it:
-~~~sh
-$ cd farn-demo
-~~~
+```sh
+cd farn-demo
+```
 
 You should now be here, in the root folder of the 'farn-demo' project:
-~~~sh
+```sh
 C:\path\to\my\dev\farn-demo
-~~~
+```
 
 
 ## Create project specific virtual environment
@@ -70,45 +70,47 @@ Convention:
 	1. Create the virtual environment in the project root folder, so that it resides with the project it is created for.
 	2. Name it '.venv'
 
-Update pip and setuptools on your system Python:
-~~~sh
-$ python -m pip install --upgrade pip setuptools
-~~~
+Create a Python virtual environment:
 
-Create virtual environment:
-~~~sh
-$ python -m venv .venv
-~~~
+```sh
+python -m venv .venv
+```
 
-Activate the virtual environment: <br>
+Activate the virtual environment:
+
 ..on Windows:
-~~~sh
-> .venv\Scripts\activate.bat
-~~~
-..on Linux:
-~~~sh
-$ source .venv/bin/activate
-~~~
 
-Update pip and setuptools in the virtual environment:
-~~~sh
-$ python -m pip install --upgrade pip setuptools
-~~~
+```sh
+> .venv\Scripts\activate.bat
+```
+
+..on Linux:
+
+```sh
+source .venv/bin/activate
+```
+
+Update pip and setuptools:
+
+```sh
+(.venv) $ python -m pip install --upgrade pip setuptools
+```
 
 
 ## pip install farn
 
-~~~sh
-$ pip install farn
-~~~
+```sh
+pip install farn
+```
 
 
 ## farn Documentation on GitHub
 
-https://dnv-opensource.github.io/farn/
+For more examples and usage, please refer to farn's [documentation][farn_docs].
+
 
 
 <!-- Markdown link & img dfn's -->
-[dictIO_docs]: https://dnv-opensource.github.io/dictIO/
-[ospx_docs]: https://dnv-opensource.github.io/ospx/
-[farn_docs]: https://dnv-opensource.github.io/farn/
+[dictIO_docs]: https://dnv-opensource.github.io/dictIO/README.html
+[ospx_docs]: https://dnv-opensource.github.io/ospx/README.html
+[farn_docs]: https://dnv-opensource.github.io/farn/README.html
