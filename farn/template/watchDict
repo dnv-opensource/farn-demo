@@ -1,0 +1,51 @@
+/*---------------------------------*- C++ -*----------------------------------*\
+filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
+\*----------------------------------------------------------------------------*/
+datasources
+{
+    difference
+    {
+		timeColumn            0;
+        dataColumns
+        (
+            1                 2                 3                 4
+        );
+    }
+    quotient
+    {
+		timeColumn            0;
+        dataColumns
+        (
+            1                 2                 3                 4
+        );
+    }
+    minuend
+    {
+		timeColumn            0;
+        dataColumns
+        (
+            1                 2
+        );
+    }
+    subtrahend
+    {
+		timeColumn            0;
+        dataColumns
+        (
+            1                 2
+        );
+    }
+    dividend
+    {
+		timeColumn            0;
+        dataColumns
+        (
+            1                 2
+        );
+    }
+}
+delimiter                     ,;
+simulation
+{
+    name                      farn_demo;
+}

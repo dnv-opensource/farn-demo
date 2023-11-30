@@ -3,10 +3,10 @@ filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
 \*----------------------------------------------------------------------------*/
 _environment
 {
-    CASEDIR                   cases;
-    DUMPDIR                   dump;
-    LOGDIR                    logs;
-    RESULTDIR                 results;
+    CASEDIR                   lhs_cases;
+    DUMPDIR                   lhs_dump;
+    LOGDIR                    lhs_logs;
+    RESULTDIR                 lhs_results;
     TEMPLATEDIR               template;
 }
 _layers

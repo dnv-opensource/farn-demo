@@ -1,0 +1,76 @@
+/*---------------------------------*- C++ -*----------------------------------*\
+filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
+\*----------------------------------------------------------------------------*/
+_environment
+{
+    CASEDIR                   hilbert_cases;
+    DUMPDIR                   hilbert_dump;
+    LOGDIR                    hilbert_logs;
+    RESULTDIR                 hilbert_results;
+    TEMPLATEDIR               template;
+}
+_layers
+{
+    hilbertVar
+    {
+        _sampling
+        {
+            _type             hilbertCurve;
+            _names
+            (
+                minuend       subtrahend          dividend
+            );
+            _ranges
+            (
+                (
+                    -10             10
+                )
+                (
+                    -10             10
+                )
+                (
+                    -20             20
+                )
+            );
+            _includeBoundingBox        true;
+            _numberOfSamples        20;
+			// upscale re-sampling: _numberOfSamples += _numberOfSamples-1  
+			_iterationDepth			5;
+        }
+        _comment              'hilbert sampling demo case dividend / (minuend - subtrahend) and filtering avoiding div_by_zero';
+		/*
+		_condition
+        {
+            _action           exclude;
+            _filter           'minuend - subtrahend == 0';
+        }
+		*/
+        _commands
+        {
+            prepare
+            (
+                'copy %TEMPLATEDIR%\caseDict .'
+                'copy %TEMPLATEDIR%\winjob.cmd .'
+                'dictParser.py caseDict --log logs\dictParser.log --log-level INFO'
+                'ospCaseBuilder.py parsed.caseDict --log logs\ospCaseBuilder.log --log-level INFO'
+            );
+            run
+            (
+                'cosim run OspSystemStructure.xml -b 0 -d 10'
+            );
+			resampleRun
+            (
+				'if not exist results (if not exist *.csv (cosim run OspSystemStructure.xml -b 0 -d 10) )' 
+            );
+			
+            runjob
+            (
+                .\winjob.cmd
+            );
+            post
+            (
+                'watchCosim.py watchDict -pd --log logs\watchCosim.log --log-level INFO'
+            );
+        }
+    }
+}
