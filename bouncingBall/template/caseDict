@@ -1,0 +1,42 @@
+/*---------------------------------*- C++ -*----------------------------------*\
+filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
+\*----------------------------------------------------------------------------*/
+#include '.\paramDict'
+
+_environment
+{
+    libSource                 C:\Dev\farn-demo\library;
+}
+systemStructure
+{
+    connections
+    {
+    }
+    components
+    {
+        bb
+        {
+            connectors
+            {
+            }
+            initialize
+            {
+                e
+                {
+                    start               $param_e;
+                }
+            }
+            fmu               BouncingBall.fmu;
+        }
+    }
+}
+run
+{
+    simulation
+    {
+        name                  OspSystemStructure;
+        startTime             0.0;
+        baseStepSize          0.01;
+        algorithm             fixedStep;
+    }
+}
