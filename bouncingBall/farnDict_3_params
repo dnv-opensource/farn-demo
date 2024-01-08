@@ -1,0 +1,60 @@
+/*---------------------------------*- C++ -*----------------------------------*\
+filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
+\*----------------------------------------------------------------------------*/
+_environment
+{
+    CASEDIR                   cases;
+    DUMPDIR                   dump;
+    LOGDIR                    logs;
+    RESULTDIR                 results;
+    TEMPLATEDIR               template;
+}
+_layers
+{
+    L1_e
+    {
+        _sampling
+        {
+            _type linSpace;
+            _names (param_e);
+            _ranges ((0.5 1.0));
+            _numberOfSamples 6;
+        }
+        _comment 'Vary restitution coefficient e: 6 values in range between 0.5 and 1.0 (= in steps of 0.1)';
+    }
+    L2_h
+    {
+        _sampling {
+            _type   fixed;
+            _names (param_h);
+            _values ((1.0 2.0 3.0));
+        }
+        _comment 'Vary start height h (3 fixed values)';
+    }
+    L3_v
+    {
+        _sampling {
+            _type fixed;
+            _names (param_v);
+            _values ((1.0 9.0));
+        }
+        _comment 'Vary start velocity v (2 fixed values)';
+        _commands
+        {
+            prepare
+            (
+                'copy %TEMPLATEDIR%\caseDict .'
+                'dictParser caseDict --log logs\dictParser.log --log-level INFO'
+                'ospCaseBuilder parsed.caseDict --log logs\ospCaseBuilder.log --log-level INFO'
+            );
+            run
+            (
+                'cosim run OspSystemStructure.xml -b 0 -d 3'
+            );
+            post
+            (
+                'watchCosim watchDict -pd --log logs\watchCosim.log --log-level INFO'
+            );
+        }
+    }
+}
