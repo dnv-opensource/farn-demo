@@ -10,13 +10,13 @@
                 "connectors": {},
                 "initialize": {
                     "h": {
-                        "start": "$param_h"
+                        "start": "$h"
                     },
                     "v": {
-                        "start": "$param_v"
+                        "start": "$v"
                     },
                     "e": {
-                        "start": "$param_e"
+                        "start": "$e"
                     }
                 },
                 "fmu": "BouncingBall.fmu"

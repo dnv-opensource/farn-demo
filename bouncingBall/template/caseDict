@@ -23,7 +23,7 @@ systemStructure
             {
                 e
                 {
-                    start               $param_e;
+                    start               $e;
                 }
             }
             fmu               BouncingBall.fmu;
