@@ -1,0 +1,19 @@
+/*---------------------------------*- C++ -*----------------------------------*\
+filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
+\*----------------------------------------------------------------------------*/
+datasources
+{
+    bb
+    {
+        dataColumns
+        (
+            1 2 3 4
+        );
+        timeColumn            0;
+    }
+}
+delimiter                     ,;
+simulation
+{
+    name                      OspSystemStructure;
+}
