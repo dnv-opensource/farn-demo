@@ -1,6 +1,6 @@
 black[jupyter]==24.1
 ruff==0.3.0
-pyright==1.1.350
+pyright==1.1.352
 sourcery==1.15
 
 -r requirements.txt
