@@ -1,5 +1,5 @@
 black[jupyter]==24.1
-ruff==0.2.1
+ruff==0.3.0
 pyright==1.1.350
 sourcery==1.15
 
