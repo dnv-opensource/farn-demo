@@ -1,4 +1,4 @@
-ruff==0.3.0
+ruff==0.4.2
 pyright==1.1.352
 sourcery==1.15
 
