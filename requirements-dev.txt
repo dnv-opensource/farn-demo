@@ -1,5 +1,5 @@
-ruff==0.3.0
-pyright==1.1.352
-sourcery==1.15
+ruff==0.4.2
+pyright==1.1.360
+sourcery==1.16
 
 -r requirements.txt
