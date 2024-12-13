@@ -11,13 +11,13 @@ dependencies = [
 
 [tool.uv]
 dev-dependencies = [
-    "ruff>=0.6.3",
-    "pyright>=1.1.378",
-    "mypy>=1.11.1",
-    "sourcery>=1.22",
+    "ruff>=0.8.3",
+    "pyright>=1.1.390",
+    "mypy>=1.13",
+    "sourcery>=1.27",
     "pandas-stubs>=2.2",
-    "types-psutil>=6.0",
-    "types-lxml>=2024.4",
+    "types-psutil>=6.1",
+    "types-lxml>=2024.11",
 ]
 
 [tool.mypy]
