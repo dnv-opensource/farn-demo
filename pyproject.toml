@@ -16,7 +16,7 @@ dev-dependencies = [
     "mypy>=1.13",
     "sourcery>=1.27",
     "pandas-stubs>=2.2",
-    "types-psutil>=6.0",
+    "types-psutil>=6.1",
     "types-lxml>=2024.11",
 ]
 
