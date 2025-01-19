@@ -34,7 +34,7 @@ _layers
             );
             _includeBoundingBox        true;
             _numberOfSamples        20;
-			// upscale re-sampling: _numberOfSamples += _numberOfSamples-1  
+			// upscale re-sampling: _numberOfSamples += _numberOfSamples-1
 			_iterationDepth			5;
         }
         _comment              'hilbert sampling demo case dividend / (minuend - subtrahend) and filtering avoiding div_by_zero';
@@ -60,9 +60,9 @@ _layers
             );
 			resampleRun
             (
-				'if not exist results (if not exist *.csv (cosim run OspSystemStructure.xml -b 0 -d 10) )' 
+				'if not exist results (if not exist *.csv (cosim run OspSystemStructure.xml -b 0 -d 10) )'
             );
-			
+
             runjob
             (
                 .\winjob.cmd

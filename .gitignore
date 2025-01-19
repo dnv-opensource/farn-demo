@@ -143,9 +143,6 @@ cython_debug/
 # PyCharm
 .idea
 
-# modules
-modules.txt
-
 # VS Code
 .vscode/*
 !.vscode/settings.json
@@ -154,3 +151,8 @@ modules.txt
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+# Cmake generated files
+CMakeUserPresets.json
+
+# modules
+modules.txt
