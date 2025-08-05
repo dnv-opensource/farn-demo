@@ -22,7 +22,7 @@ add -v or --verbose to log INFO and DEBUG messages to console.
 
 <table><tr><td>
 
-(farnDict in dictIO format)
+(farnDict in dictIO native file format)
 ~~~sh
 $ farn farnDict --sample
 ~~~
@@ -41,7 +41,7 @@ $ farn farnDict.json --sample
 
 <table><tr><td>
 
-(farnDict in dictIO format)
+(farnDict in dictIO native file format)
 ~~~sh
 $ farn sampled.farnDict --generate
 ~~~
@@ -65,7 +65,7 @@ Executing the 'copy' command, will execute multiple shell commands (as set speci
 
 <table><tr><td>
 
-(farnDict in dictIO format)
+(farnDict in dictIO native file format)
 ~~~sh
 $ farn sampled.farnDict --execute prepare
 ~~~
@@ -89,7 +89,7 @@ If you omitted the 'parse' command, the 'build' command in farnDict should point
 
 <table><tr><td>
 
-(dictIO format)
+(dictIO native file format)
 ~~~cpp
 _commands
 {
@@ -132,7 +132,7 @@ Execute the 'run' command set to run cosim in all case folders:
 
 <table><tr><td>
 
-(farnDict in dictIO format)
+(farnDict in dictIO native file format)
 ~~~sh
 $ farn sampled.farnDict --execute run
 ~~~
@@ -150,7 +150,7 @@ Alternatively, use the 'runjob' command set instead to run cosim in a separate c
 
 <table><tr><td>
 
-(farnDict in dictIO format)
+(farnDict in dictIO native file format)
 ~~~sh
 $ farn sampled.farnDict --execute runjob
 ~~~
@@ -172,7 +172,7 @@ Execute the 'post' command set to run any postprocessing jobs or, as in this dem
 
 <table><tr><td>
 
-(farnDict in dictIO format)
+(farnDict in dictIO native file format)
 ~~~sh
 $ farn sampled.farnDict --execute post
 ~~~

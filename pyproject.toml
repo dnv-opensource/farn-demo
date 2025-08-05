@@ -1,80 +1,105 @@
-[tool.black]
-line-length = 120
-target-version = ["py39", "py310", "py311"]
-
-[tool.ruff]
-exclude = [
-    ".git",
-    ".venv",
-    ".tox",
-    "build",
-    "dist",
-    "__pycache__",
+[project]
+name = "farn-demo"
+version = "0.4.1"
+description = "Demo cases to get started with farn."
+readme = "README.md"
+requires-python = ">= 3.10, < 3.14"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Frank Lumpitzsch", email = "frank.lumpitzsch@dnv.com" },
+    { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
+    { name = "Seunghyeon Yoo", email = "seunghyeon.yoo@dnv.com" },
 ]
-src = [
+maintainers = [
+    { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
+]
+keywords = [
+    "farn",
+    "OSP",
+    "fmi",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "farn>=0.4.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/dnv-opensource/farn"
+Documentation = "https://dnv-opensource.github.io/farn/README.html"
+Repository = "https://github.com/dnv-opensource/farn.git"
+Issues = "https://github.com/dnv-opensource/farn/issues"
+Changelog = "https://github.com/dnv-opensource/farn/blob/main/CHANGELOG.md"
+
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.0",
+    "pyright>=1.1.396",
+    "mypy>=1.15",
+    "sourcery>=1.35",
+    "pre-commit>=4.1",
+    "pandas-stubs>=2.2",
+    "types-psutil>=7.0",
+    "types-lxml>=2025.3",
+]
+
+[tool.uv]
+default-groups = [
+    "dev",
+]
+native-tls = true
+
+[tool.mypy]
+plugins = [
+    "numpy.typing.mypy_plugin",
+]
+mypy_path = "stubs"
+files = [
     "farn",
     "importSystemStructure",
     "ospCaseBuilder",
-    ]
-ignore = [
-    "E501",  # Line length too long
-    "D100",  # Missing docstring in public module
-    "D104",  # Missing docstring in public package
-    "D105",  # Missing docstring in magic method
-    "D107",  # Missing docstring in __init__
-    "D202",  # No blank lines allowed after function docstring
-    "D203",  # 1 blank line required before class docstring
-    "D205",  # 1 blank line required between summary line and description
-    "D212",  # Multi-line docstring summary should start at the first line
-    "D213",  # Multi-line docstring summary should start at the second line
-    # "N802",  # Function name should be lowercase  (uncomment if you want to allow Uppercase function names)
-    # "N803",  # Argument name should be lowercase  (uncomment if you want to allow Uppercase argument names)
-    "N806",  # Variable in function should be lowercase  (uncomment if you want to allow Uppercase variable names in functions)
-    # "N815",  # Variable in class scope should not be mixedCase  (uncomment if you want to allow mixedCase variable names in class scope)
-    # "N816",  # Variable in global scope should not be mixedCase  (uncomment if you want to allow mixedCase variable names in global scope)
-    "N999",  # Invalid module name
-    ]
-line-length = 120
-select = [
-    "E",
-    "D",
-    "F",
-    "N",
-    "W",
-    "I",
-    "B",
 ]
-target-version = "py39"
-
-[tool.ruff.pep8-naming]
-ignore-names = [
-    "test_*",
-    "setUp",
-    "tearDown",
+exclude = [
+    "^src/folder_to_be_excluded/",
+]
+check_untyped_defs = true
+disable_error_code = [
+    "misc",
+    "import-untyped",
 ]
 
-[tool.ruff.pydocstyle]
-convention = "numpy"
-
-[tool.ruff.per-file-ignores]
-"__init__.py" = ["I001"]
-"./tests/*" = ["D"]
 
 [tool.pyright]
-exclude = [
-    ".git",
-    ".venv",
-    ".tox",
-    "build",
-    "dist",
-    "**/__pycache__",
-    "./venv",
+stubPath = "stubs"
+include = [
+    "farn",
+    "importSystemStructure",
+    "ospCaseBuilder",
 ]
+exclude = [
+    "src/folder_to_be_excluded",
+]
+
 typeCheckingMode = "basic"
 useLibraryCodeForTypes = true
 reportMissingParameterType = "error"
 reportUnknownParameterType = "warning"
-reportUnknownMemberType = "warning"
+reportUnknownMemberType = "warning"                # consider to set to `false` if you work a lot with matplotlib and pandas, which are both not properly typed and known to trigger this warning
 reportMissingTypeArgument = "error"
 reportPropertyTypeMismatch = "error"
 reportFunctionMemberAccess = "warning"
@@ -95,11 +120,13 @@ reportUnusedExpression = "warning"
 reportMatchNotExhaustive = "warning"
 reportShadowedImports = "warning"
 reportUntypedFunctionDecorator = "warning"
+reportUntypedClassDecorator = "warning"
 reportUntypedBaseClass = "error"
 reportUntypedNamedTuple = "warning"
+reportUnnecessaryTypeIgnoreComment = "information"
 # Activate the following rules only locally and temporary, i.e. for a QA session.
 # (For server side CI they are considered too strict.)
+# reportMissingTypeStubs = true
 # reportConstantRedefinition = "warning"
-# reportUnnecessaryTypeIgnoreComment = "information"
 # reportImportCycles = "warning"
 # reportImplicitStringConcatenation = "warning"
