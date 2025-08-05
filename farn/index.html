@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
+                <title>farn</title>           
+                <meta name="author" content="DNVGL SE" />
+                <!-- Date: 2014-02-04 -->
+                <link rel="stylesheet" type="text/css" href="templates/microwave.css"/>
+                <script type="text/javascript" src="templates/mojomagnify.js"></script>
+                <link type="text/css" href="templates/mojomagnify.css" rel="stylesheet" />
+    </head>
+    
+<script type="text/javascript">    
+var  a = new Array(2);
+
+a[0] = new Array('watchDict-farn_demo.png');
+
+a[1] = new Array('lhsVar_02' , 'lhsVar_03' , 'lhsVar_04' , 'lhsVar_05' , 'lhsVar_08' , 'lhsVar_09' , 'lhsVar_10' , 'lhsVar_11' , 'lhsVar_12' , 'lhsVar_13' , 'lhsVar_14' , 'lhsVar_15' , 'lhsVar_16' , 'lhsVar_17' , 'lhsVar_18' , 'lhsVar_19' , 'lhsVar_20' , 'lhsVar_21' , 'lhsVar_22' , 'lhsVar_23' , 'lhsVar_24' , 'lhsVar_25' , 'lhsVar_26' , 'lhsVar_27');
+
+
+var current = [0,0];
+
+var matrix = [-1,-1];
+var lenMatrix = [1,1];
+var oldMatrix = [-1,-1];
+
+function filename() {
+    return 'cases/'+a[1][current[1]]+'/results/'+a[0][current[0]]; } 
+
+function setRowsColumns(rc,index) {
+     oldMatrix[rc] = index;
+
+     if (document.getElementById("imgSrc"+String(0)+'.'+String(0)).__mojoMagnifyImage) {delete document.getElementById("imgSrc"+String(0)+'.'+String(0)).__mojoMagnifyImage;}
+     for (var i = 0; i < current.length; i++)
+     {
+         document.getElementById("sel"+String(i)).disabled = false;
+         document.getElementById("decrease"+String(i)).style.visibility = "visible";
+         document.getElementById("increase"+String(i)).style.visibility = "visible";
+     }
+     document.getElementById("OutputWindow").innerHTML = ''
+     if (matrix[1-rc] == index && index!=-1) 
+     {
+        lenMatrix[1-rc]=1; // Avoid same param in rows and cols
+        matrix[1-rc]=-1;
+     }
+     if (matrix[rc] == index) index =-1; // Switch off by clicking again
+     matrix[rc]=index;
+     if (index == -1) 
+        lenMatrix[rc]=1
+     else 
+        lenMatrix[rc]=a[matrix[rc]].length;
+     for (var i=0; i<=1; i++ )
+     {
+        if (matrix[i] != -1) 
+        {
+            document.getElementById("sel"+String(matrix[i])).disabled = true;
+            document.getElementById("decrease"+String(matrix[i])).style.visibility = "hidden";
+            document.getElementById("increase"+String(matrix[i])).style.visibility = "hidden";
+        }
+     }
+     var table = document.createElement("table")
+     if (lenMatrix[1] > 1) 
+     { // Multiple columns, create header row
+        var newRow = document.createElement("tr");
+        if (lenMatrix[0] > 1 )
+        { // Multiple lines, create header column - but empty in header row
+           var item = document.createElement("th");
+           item.style.width = "100px";
+           newRow.appendChild(item);
+        }
+         for (var c=0; c<lenMatrix[1]; c++)
+        { // Fill header row fields
+           var item = document.createElement("th");
+           var link = document.createElement("a");
+           var text = document.createTextNode(a[matrix[1]][c]);
+           link.setAttribute("href","javascript:current["+String(matrix[1])+"]="+String(c)+";setRowsColumns(1,"+String(matrix[1])+")")
+           link.appendChild(text);
+           item.appendChild(link);
+           newRow.appendChild(item);
+        } 
+        table.appendChild(newRow); 
+     }
+     for (var r=0; r<lenMatrix[0]; r++)
+        {
+        var newRow = document.createElement("tr");
+        newRow.id = "row"+String(r);
+        if (lenMatrix[0] > 1 )
+        { // Multiple lines, create header column
+           var item = document.createElement("th");
+           item.id = "leftHeader";
+           var link = document.createElement("a");
+           var text = document.createTextNode(a[matrix[0]][r]);
+           link.setAttribute("href","javascript:current["+String(matrix[0])+"]="+String(r)+";setRowsColumns(0,"+String(matrix[0])+")")
+           link.appendChild(text);
+           item.appendChild(link);
+           //item.style.height = "100px"; // Does not work
+           item.style.width = "100px";
+           newRow.appendChild(item);
+        }
+         for (var c=0; c<lenMatrix[1]; c++)
+         {
+           var td = document.createElement("td");
+           var item = document.createElement("a");
+           item.id = "image"+String(r)+'.'+String(c);
+           item.setAttribute("href",".");
+           var img = document.createElement("img");
+           img.id = "imgSrc"+String(r)+'.'+String(c);
+           img.setAttribute("src",".");
+           img.setAttribute("onerror","this.src='templates/ImageNotAvailable.png'");
+//           img.style.maxWidth = String(Math.floor(100./lenMatrix[1]))+"%";
+           item.appendChild(img);
+           td.appendChild(item);
+           newRow.appendChild(td);
+        }
+        table.appendChild(newRow);
+    }
+    document.getElementById("OutputWindow").appendChild(table);
+    var captionBelow=document.createElement("div");
+    captionBelow.id = "captionBelow";
+    captionBelow.setAttribute("align","center");
+    captionBelow.appendChild(document.createTextNode("imageDir"));
+    document.getElementById("OutputWindow").appendChild(captionBelow);
+    setNew();
+}
+
+function setNew() 
+{
+    document.getElementById("Header1").firstChild.nodeValue = displayLabel(1);
+    document.getElementById("Header2").firstChild.nodeValue = displayLabel(0);
+    var oldcurrent = new Array(2);
+    if (matrix[0]!=-1) oldcurrent[matrix[0]]=current[matrix[0]];
+    if (matrix[1]!=-1) oldcurrent[matrix[1]]=current[matrix[1]];
+    for (var r=0; r<lenMatrix[0]; r++)
+    {
+        for (var c=0; c<lenMatrix[1]; c++)
+            {
+            if (matrix[0]!=-1) current[matrix[0]]=r;
+            if (matrix[1]!=-1) current[matrix[1]]=c;
+            if (document.getElementById("imgSrc"+String(r)+'.'+String(c)).__mojoMagnifyImage) {delete document.getElementById("imgSrc"+String(r)+'.'+String(c)).__mojoMagnifyImage;}
+            document.getElementById("image"+String(r)+'.'+String(c)).style.width="auto";
+            document.getElementById("image"+String(r)+'.'+String(c)).style.height="auto";
+            document.getElementById("imgSrc"+String(r)+'.'+String(c)).src = filename();
+            if (matrix[0]==-1 && matrix[1]==-1) 
+            {
+                var opt = {full : false,animate : false    };
+                document.getElementById("imgSrc"+String(r)+'.'+String(c)).onload = function() {
+                    MojoMagnify.makeMagnifiable(document.getElementById("imgSrc0.0"),filename(),opt); } 
+                document.getElementById("image0.0").href = filename();
+                document.getElementById("captionBelow").firstChild.nodeValue = filename();
+            } 
+            else
+            {
+                document.getElementById("image"+String(r)+'.'+String(c)).href = 'javascript:makeSingle('+String(r)+','+String(c)+')';
+                document.getElementById("captionBelow").firstChild.nodeValue = '';
+            }
+        }
+    }
+    if (matrix[0]!=-1) current[matrix[0]]=oldcurrent[matrix[0]];
+    if (matrix[1]!=-1) current[matrix[1]]=oldcurrent[matrix[1]];
+    for (var i = 0; i < current.length; i++)
+        document.getElementById("sel"+i).selectedIndex = current[i];
+    for (var i = 1; i < current.length; i++)
+    {
+        // This is not working in IE. Why???
+        document.getElementById("arrows"+String(i)).firstChild.nodeValue = displayLabel(i);
+        document.getElementById("decrease"+String(i)).title = a[i][leftNeighbour(i)]
+        document.getElementById("increase"+String(i)).title = a[i][rightNeighbour(i)]
+    }
+    document.getElementById("back").firstChild.nodeValue = 'Back';
+    
+    // Set URL according to currently displayed image(s) 
+    // - pushState does not work with emulateIE9 and additionally damages the dropdown menus
+    // - window.location leads into endless loop already in firefox.... :-(
+    // Thus the new URL is just put as link to the header, it can copied from there
+    
+    newUrl=location.href.split("?")[0]+"?"
+    for (var i=0; i < current.length; i++) newUrl += i+"="+current[i]+"&"
+    if (matrix[0]!=-1) newUrl += matrix[0]+"=r&"
+    if (matrix[1]!=-1) newUrl += matrix[1]+"=c&"
+    
+    document.getElementById("Header1").href = newUrl;
+    
+    //history.pushState({}, null, newUrl); 
+    //window.location = newUrl;
+}
+
+function makeSingle(row,column) 
+{
+    current[matrix[0]]=row;
+    current[matrix[1]]=column;
+    //var tmp = new Array(2);
+    //tmp = oldMatrix
+    var tmp0 = oldMatrix[0];
+    var tmp1 = oldMatrix[1];
+    setRowsColumns(0,-1);
+    setRowsColumns(1,-1);
+    //oldMatrix = tmp
+    oldMatrix = [tmp0,tmp1];
+}
+
+function displayLabel(index) 
+{
+    if (index == matrix[0]) return "ALL: ROWS"
+    else if (index == matrix[1]) return "ALL: COLUMNS"
+    else return a[index][current[index]];
+}
+function rightNeighbour(index) {
+    newind=current[index]+1
+    if (newind==a[index].length) newind=0;
+    return newind; }
+
+function leftNeighbour(index) {
+    newind=current[index]-1
+    if (newind<0) newind=a[index].length-1;
+    return newind; }
+
+function increase(index) {
+    current[index] = rightNeighbour(index);
+    setNew();}
+
+function decrease(index) {
+    current[index] = leftNeighbour(index);
+    setNew();}
+
+function initPage() {
+
+    var parameters = location.search.substring(1).split("&");
+    
+    var mat=new Array(-1,-1);
+    if (parameters.length>0)
+    {
+        if (parameters[0].length>0)
+        {
+            for (var i = 0; i < parameters.length; i++)
+            {
+                var key = parseInt(unescape(parameters[i].split("=")[0]));
+                var val = unescape(parameters[i].split("=")[1]);
+                if ( 0 <= key < current.length )
+                {
+                    if (val == 'r')
+                    {
+                        mat[0]=key;
+                    }
+                    else if (val == 'c')
+                    {
+                        mat[1]=key;
+                    }
+                    else
+                    {
+                        current[key] = parseInt(val);
+                    }
+                }
+            }
+        }
+    }
+
+
+    setRowsColumns(0,mat[0]);
+    setRowsColumns(1,mat[1]);
+    for (var i = 0; i < current.length; i++)
+    fillMenu(i);
+    setNew();
+}
+
+
+function fillMenu(index) {
+    var select = document.getElementById("sel"+index);
+    for(var i = 0; i < a[index].length; i++) 
+    {
+        var opt = a[index][i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        select.appendChild(el); 
+    } 
+}
+
+function readMenus() 
+{
+    for (var i = 0; i < current.length; i++)
+        current[i]=document.getElementById("sel"+i).selectedIndex;
+    setNew();
+}
+
+window.onresize = function(event) 
+{
+    setNew();
+}
+
+
+</script>
+<body onload="initPage();">        
+    <div id="Header">
+        <h1><a id="Header1" href=".">Header1</a></h1>
+        <h2 id="Header2">Header2</h2>
+        <!-- #############Dropdown Menu############# -->
+
+        <div id="menu">
+            <form>
+                <!-- <select id="sel0" onchange="readMenus()"> </select> -->
+                
+                <select id="sel0" onchange="readMenus()"> </select>
+                
+                <select id="sel1" onchange="readMenus()"> </select>
+                
+            </form>
+        </div>
+    </div>
+
+        
+    <!-- #############Arrows############# -->
+        
+    <div id="Nav" style="height:210px">
+            <!-- <div class="arrows">
+                <div class="arrowLeft"><a id="decrease0" href="javascript:decrease(0)" title='Previous image'>
+                    <img src="templates/arrowLeft.png">
+                </a></div>
+                <div class="arrowUD"><a href="javascript:setRowsColumns(0,0)" title='Show all in rows'><img src="templates/arrowUD.png"></a></div>
+                <div class="arrowLR"><a href="javascript:setRowsColumns(1,0)" title='Show all in columns'><img src="templates/arrowLR.png"></a></div>
+                <div class="arrowRight"><a id="increase0" href="javascript:increase(0)" title='Next image'>
+                    <img src="templates/arrowRight.png"></div>
+                </a>
+                <div id="arrows0" class="arrowCaption"> </div>
+            </div> -->
+            
+            <div class="arrows">
+                <div class="arrowLeft"><a id="decrease0" href="javascript:decrease(0)" title='Previous'>
+                    <img src="templates/arrowLeft.png">
+                </a></div>
+                <div class="arrowUD"><a href="javascript:setRowsColumns(0,0)" title='Show all in rows'><img src="templates/arrowUD.png"></a></div>
+                <div class="arrowLR"><a href="javascript:setRowsColumns(1,0)" title='Show all in columns'><img src="templates/arrowLR.png"></a></div>
+                <div class="arrowRight"><a id="increase0" href="javascript:increase(0)" title='Next'>
+                    <img src="templates/arrowRight.png">
+                </a></div>
+                <div id="arrows0" class="arrowCaption">.</div>
+            </div>
+            
+            <div class="arrows">
+                <div class="arrowLeft"><a id="decrease1" href="javascript:decrease(1)" title='Previous'>
+                    <img src="templates/arrowLeft.png">
+                </a></div>
+                <div class="arrowUD"><a href="javascript:setRowsColumns(0,1)" title='Show all in rows'><img src="templates/arrowUD.png"></a></div>
+                <div class="arrowLR"><a href="javascript:setRowsColumns(1,1)" title='Show all in columns'><img src="templates/arrowLR.png"></a></div>
+                <div class="arrowRight"><a id="increase1" href="javascript:increase(1)" title='Next'>
+                    <img src="templates/arrowRight.png">
+                </a></div>
+                <div id="arrows1" class="arrowCaption">.</div>
+            </div>
+            
+            <div class="arrows">
+              <div class="arrowBack"><a href="javascript:setRowsColumns(0,oldMatrix[0]);javascript:setRowsColumns(1,oldMatrix[1])"><img src="templates/arrowLeft.png"></a></div>
+              <div id="back" class="arrowCaption">.</div>
+            </div>
+
+    </div>
+    <!-- #############Output Window############# -->
+    <div id="OutputWindow">
+         <table>
+             <tr id="row0">
+                 <td><a id="image0.0" href="."><img id="imgSrc0.0" src="." onerror="this.src='templates/ImageNotAvailable.png'"></a></td>
+             </tr>
+         </table>
+         <div id="captionBelow" align="center">imageDir</div>
+    </div>
+    <div id="footer">
+    </div>
+</body>
+</html>

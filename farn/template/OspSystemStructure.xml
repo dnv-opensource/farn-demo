@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure" version="0.1">
+    <BaseStepSize>0.01</BaseStepSize>
+    <Algorithm>fixedStep</Algorithm>
+    <Simulators>
+        <Simulator name="difference" source="..\..\library\difference.fmu"/>
+        <Simulator name="quotient" source="..\..\library\quotient.fmu"/>
+        <Simulator name="minuend" source="..\..\library\constantVal.fmu">
+            <InitialValues>
+                <InitialValue variable="constVal.IN">
+                    <Real value="102.0"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+        <Simulator name="subtrahend" source="..\..\library\constantVal.fmu">
+            <InitialValues>
+                <InitialValue variable="constVal.IN">
+                    <Real value="88.0"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+        <Simulator name="dividend" source="..\..\library\constantVal.fmu">
+            <InitialValues>
+                <InitialValue variable="constVal.IN">
+                    <Real value="10.0"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+    </Simulators>
+    <Connections>
+        <VariableConnection>
+            <Variable simulator="minuend" name="constVal.OUT"/>
+            <Variable simulator="difference" name="difference.IN1"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="subtrahend" name="constVal.OUT"/>
+            <Variable simulator="difference" name="difference.IN2"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="dividend" name="constVal.OUT"/>
+            <Variable simulator="quotient" name="quotient.IN1"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="difference" name="difference.OUT"/>
+            <Variable simulator="quotient" name="quotient.IN2"/>
+        </VariableConnection>
+    </Connections>
+</OspSystemStructure>

@@ -3,11 +3,15 @@ filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
 \*----------------------------------------------------------------------------*/
 _environment
 {
-    CASEDIR                   hilbert_cases;
-    DUMPDIR                   hilbert_dump;
-    LOGDIR                    hilbert_logs;
-    RESULTDIR                 hilbert_results;
+    CASEDIR                   cases;
+    DUMPDIR                   dump;
+    LOGDIR                    logs;
+    RESULTDIR                 results;
     TEMPLATEDIR               template;
+}
+_always
+{
+    dummy                   0.0;
 }
 _layers
 {

@@ -1,0 +1,59 @@
+digraph {
+	graph [bgcolor=white fontcolor=black fontname=Verdana fontsize=11 label=farn_demo margin=0 overlap=compress rankdir=TD ratio=fill remincross=true sep="10,100" size="10, 10!"]
+	node [color=magenta fillcolor=magenta fontcolor=white fontname=Verdana fontsize=11 shape=square style=filled]
+	edge [arrowhead=open color=magenta fontcolor=magenta fontname=Verdana fontsize=11 penwidth=3 style=dashed]
+	difference [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN="6">difference</TD>
+</TR>
+<TR><TD>source:</TD><TD>difference.fmu</TD></TR>
+<TR><TD>stepsize:</TD><TD>0.001</TD></TR>
+<TR><TD>variables:</TD><TD></TD></TR>
+</TABLE>
+> color=black fillcolor="#EEBBDD" fontcolor=black fontname=Verdana fontsize=11 shape=square style="filled, rounded"]
+	quotient [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN="6">quotient</TD>
+</TR>
+<TR><TD>source:</TD><TD>quotient.fmu</TD></TR>
+<TR><TD>stepsize:</TD><TD>0.001</TD></TR>
+<TR><TD>variables:</TD><TD></TD></TR>
+</TABLE>
+> color=black fillcolor="#EEBBDD" fontcolor=black fontname=Verdana fontsize=11 shape=square style="filled, rounded"]
+	minuend [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN="6">minuend</TD>
+</TR>
+<TR><TD>source:</TD><TD>constantVal.fmu</TD></TR>
+<TR><TD>stepsize:</TD><TD>0.001</TD></TR>
+<TR><TD>variables:</TD><TD></TD></TR>
+</TABLE>
+> color=black fillcolor="#DDDDEE" fontcolor=black fontname=Verdana fontsize=11 shape=square style=filled]
+	subtrahend [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN="6">subtrahend</TD>
+</TR>
+<TR><TD>source:</TD><TD>constantVal.fmu</TD></TR>
+<TR><TD>stepsize:</TD><TD>0.001</TD></TR>
+<TR><TD>variables:</TD><TD></TD></TR>
+</TABLE>
+> color=black fillcolor="#DDDDEE" fontcolor=black fontname=Verdana fontsize=11 shape=square style=filled]
+	dividend [label=<
+<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+<TR>
+<TD COLSPAN="6">dividend</TD>
+</TR>
+<TR><TD>source:</TD><TD>constantVal.fmu</TD></TR>
+<TR><TD>stepsize:</TD><TD>0.001</TD></TR>
+<TR><TD>variables:</TD><TD></TD></TR>
+</TABLE>
+> color=black fillcolor="#EEBBDD" fontcolor=black fontname=Verdana fontsize=11 shape=square style="filled, rounded"]
+	minuend -> difference [label="constVal.OUT-->difference.IN1" arrowhead=open color=black fontcolor=black fontname=Verdana fontsize=11 overlap=false penwidth="('3',)" splines=true style=bold weight="('3',)"]
+	subtrahend -> difference [label="constVal.OUT-->difference.IN2" arrowhead=open color=black fontcolor=black fontname=Verdana fontsize=11 overlap=false penwidth="('3',)" splines=true style=bold weight="('3',)"]
+	dividend -> quotient [label="constVal.OUT-->quotient.IN1" arrowhead=open color="#995566" fontcolor="#663344" fontname=Verdana fontsize=11 overlap=false penwidth="('3',)" splines=true style=filled weight="('0.66',)"]
+	difference -> quotient [label="difference.OUT-->quotient.IN2" arrowhead=open color="#995566" fontcolor="#663344" fontname=Verdana fontsize=11 overlap=false penwidth="('3',)" splines=true style=filled weight="('0.66',)"]
+}

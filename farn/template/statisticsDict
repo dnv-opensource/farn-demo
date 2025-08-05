@@ -1,0 +1,59 @@
+/*---------------------------------*- C++ -*----------------------------------*\
+filetype dictionary; coding utf-8; version 0.1; local --; purpose --;
+\*----------------------------------------------------------------------------*/
+simulation
+{
+    name                      farn_demo;
+}
+components
+{
+    count                     5;
+    names
+    (
+        difference        quotient          minuend           subtrahend        dividend
+    );
+}
+connections
+{
+    count                     4;
+    names
+    (
+        minuend_to_difference    subtrahend_to_difference    dividend_to_quotient    difference_to_divisor
+    );
+}
+connectors
+{
+    count                     9;
+    names
+    (
+        difference_input_minuend    difference_input_subtrahend    difference_output    quotient_input_dividend    quotient_input_divisor    quotient_output    minuend_output    subtrahend_output    dividend_output
+    );
+}
+units
+{
+    count                     1;
+    unitNames
+    (
+        -
+    );
+    displayUnitNames
+    (
+        -
+    );
+    factors
+    (
+        1.0
+    );
+    offsets
+    (
+        0.0
+    );
+}
+variables
+{
+    count                     8;
+    names
+    (
+        difference.IN1    difference.IN2    difference.OUT    quotient.IN1      quotient.IN2      quotient.OUT      constVal.IN       constVal.OUT
+    );
+}

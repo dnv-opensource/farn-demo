@@ -1,0 +1,183 @@
+/* #### Global #### */
+
+body {
+    color: #0F204B; background-color: white;
+    font-size: 100.01%;
+    font-family: Helvetica;
+    margin: 0; padding: 0em;
+    min-width: 40em; /* Mindestbreite verhindert Umbruch und Anzeigefehler in modernen Browsern */
+    height: 100%;
+}
+
+#footer {
+    background-image:url(DNV_GL_LOGO_RGB-01-220x60.png), url(DNV_GL_STRIPE_RGB-01-30x60.png); 
+    background-repeat:no-repeat, repeat-x;
+    background-position:bottom right;
+    height: 60px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    clear:both;
+}
+
+html {
+    height: 100%;
+}
+
+
+img {
+    max-width: 100%;
+    max-height:100%;
+    height: auto;
+    width: auto;
+    border: 0px;
+    padding-top: 0;
+}
+figure {
+    position: relative;
+    margin: 0px;
+    padding: 0;
+    text-align: center;
+}
+
+figcaption {
+	font-size: 12pt;
+/*	position: absolute;*/
+    color: black;
+    padding: 0;
+}
+
+h1 {
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 12pt;
+}
+
+table {
+   width: 100%;
+   text-align: center;
+   table-layout: fixed;
+}
+
+td {
+}
+
+th#leftHeader {
+    text-align:center;
+    vertical-align: middle;
+    max-width: 20%;
+    writing-mode:vertical-lr;
+    -webkit-transform:rotate(270deg);
+    -moz-transform:rotate(270deg);
+    -o-transform: rotate(270deg);
+}
+
+div#Header {
+  	text-align: center;
+    margin: 0; padding: 0;
+    border: 0; 
+    margin-top: 10px;
+    padding-bottom:12px;
+    padding-top: 2px;
+    background-color: #44c8f5;
+    background-image: url(back-title-top.png),url(back-title.png); 
+    background-repeat:repeat-x;
+    background-position:top center,bottom center;
+	color: white;
+}
+
+div#Header a {
+    background-color: #44c8f5;
+    color: white;
+    text-decoration: none;
+}
+
+#Nav {
+    width: 150px;
+    height:auto;
+    float:right;
+    text-align: center;
+    margin: 3em 0 0; padding: 0;
+    position:relative;
+}
+
+.arrows {
+    padding: 0; margin: 1em 10px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    position:relative;
+    width:140px;
+    height:80px;
+}
+.arrows a {
+    text-align:center;
+    display:inline-block; 
+}
+a:link {
+    color: #0F204B;
+    background-color: white;
+}
+a:visited {
+    color: #0F204B;
+    background-color: white;
+}
+a:hover {
+    color: #0F204B;
+    background-color: #99D9F0;
+}
+a:active {
+    color: #0F204B;
+    background-color: gray;
+}
+
+.arrowLeft {
+    width:48px;height:48px;
+    position:absolute;
+    top:0px;left:0px;
+}
+.arrowLR {
+    width:24px;height:24px;
+    position:absolute;
+    top:24px;left:58px;
+}
+.arrowUD {
+    width:24px;height:24px;
+    position:absolute;
+    top:0px;left:58px;
+}
+.arrowRight {
+    width:48px;height:48px;
+    position:absolute;
+    top:0px;left:92px;
+}
+.arrowCaption {
+    width:140px;height:32px;
+    position:absolute;
+    top:48px;left:0px;
+}
+
+
+
+#OutputWindow {
+/*    margin: 1em 20em 0 1em; */
+    margin: 1em 160px 1em 1em;
+    padding: 0;
+    /*border: 1px dashed silver;*/
+    overflow: hidden;
+}
+
+/* #### Dropdown Menu #### */
+
+div#menu {
+/*  	left: 0%;*/
+	text-align:center;
+	padding: 0;
+	margin: 0;
+        padding-bottom:4px;
+/*  	margin-left: 10px; padding: 0; 
+  	position: absolute;*/ 
+}
+

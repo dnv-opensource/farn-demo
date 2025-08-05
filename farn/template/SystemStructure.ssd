@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<ssd:SystemStructureDescription xmlns:ssd="file:///C:/Software/OSP/xsd/SystemStructureDescription">
+    <ssd:System name="farn_demo" description="farn_demo">
+        <ssd:Elements>
+            <ssd:Component name="difference" source="..\..\library\difference.fmu">
+                <ssd:Connectors>
+                    <ssd:Connector name="difference.IN1" kind="input">
+                        <ssd:Real/>
+                    </ssd:Connector>
+                    <ssd:Connector name="difference.IN2" kind="input">
+                        <ssd:Real/>
+                    </ssd:Connector>
+                    <ssd:Connector name="difference.OUT" kind="output">
+                        <ssd:Real/>
+                    </ssd:Connector>
+                </ssd:Connectors>
+            </ssd:Component>
+            <ssd:Component name="quotient" source="..\..\library\quotient.fmu">
+                <ssd:Connectors>
+                    <ssd:Connector name="quotient.IN1" kind="input">
+                        <ssd:Real/>
+                    </ssd:Connector>
+                    <ssd:Connector name="quotient.IN2" kind="input">
+                        <ssd:Real/>
+                    </ssd:Connector>
+                    <ssd:Connector name="quotient.OUT" kind="output">
+                        <ssd:Real/>
+                    </ssd:Connector>
+                </ssd:Connectors>
+            </ssd:Component>
+            <ssd:Component name="minuend" source="..\..\library\constantVal.fmu">
+                <ssd:Connectors>
+                    <ssd:Connector name="constVal.OUT" kind="output">
+                        <ssd:Real/>
+                    </ssd:Connector>
+                </ssd:Connectors>
+            </ssd:Component>
+            <ssd:Component name="subtrahend" source="..\..\library\constantVal.fmu">
+                <ssd:Connectors>
+                    <ssd:Connector name="constVal.OUT" kind="output">
+                        <ssd:Real/>
+                    </ssd:Connector>
+                </ssd:Connectors>
+            </ssd:Component>
+            <ssd:Component name="dividend" source="..\..\library\constantVal.fmu">
+                <ssd:Connectors>
+                    <ssd:Connector name="constVal.OUT" kind="output">
+                        <ssd:Real/>
+                    </ssd:Connector>
+                </ssd:Connectors>
+            </ssd:Component>
+        </ssd:Elements>
+        <ssd:Connections>
+            <ssd:Connection startElement="minuend" startConnector="constVal.OUT" endElement="difference" endConnector="difference.IN1"/>
+            <ssd:Connection startElement="subtrahend" startConnector="constVal.OUT" endElement="difference" endConnector="difference.IN2"/>
+            <ssd:Connection startElement="dividend" startConnector="constVal.OUT" endElement="quotient" endConnector="quotient.IN1"/>
+            <ssd:Connection startElement="difference" startConnector="difference.OUT" endElement="quotient" endConnector="quotient.IN2"/>
+        </ssd:Connections>
+    </ssd:System>
+    <ssd:DefaultExperiment>
+        <ssd:Annotations>
+            <ssd:Annotation type="com.opensimulationplatform">
+                <ssd:Algorithm>
+                    <ssd:FixedStepAlgorithm baseStepSize="0.01" startTime="0" stopTime="10"/>
+                </ssd:Algorithm>
+            </ssd:Annotation>
+        </ssd:Annotations>
+    </ssd:DefaultExperiment>
+</ssd:SystemStructureDescription>
