@@ -71,7 +71,6 @@ required-environments = [
 
 [tool.mypy]
 plugins = [
-    "numpy.typing.mypy_plugin",
 ]
 mypy_path = "stubs"
 files = [
