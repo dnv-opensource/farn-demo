@@ -35,7 +35,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-    "farn>=0.4.4",
+    "farn>=0.5.0",
 ]
 
 [project.urls]
