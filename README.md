@@ -132,7 +132,7 @@ uv run pre-commit autoupdate
 
 ## Meta
 
-Copyright (c) 2024 [DNV](https://www.dnv.com) SE. All rights reserved.
+Copyright (c) 2026 [DNV](https://www.dnv.com) SE. All rights reserved.
 
 Frank Lumpitzsch - [@LinkedIn](https://www.linkedin.com/in/frank-lumpitzsch-23013196/) - frank.lumpitzsch@dnv.com
 
