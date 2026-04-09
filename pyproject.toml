@@ -49,7 +49,7 @@ Changelog = "https://github.com/dnv-opensource/farn/blob/main/CHANGELOG.md"
 [dependency-groups]
 dev = [
     "ruff>=0.11.0",
-    "pyright>=1.1.396",
+    "pyright>=1.1.408",
     "mypy>=1.15",
     "sourcery>=1.35",
     "pre-commit>=4.5",
