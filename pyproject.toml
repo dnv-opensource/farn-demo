@@ -54,7 +54,7 @@ dev = [
     "sourcery>=1.35",
     "pre-commit>=4.5",
     "pandas-stubs>=2.2",
-    "types-psutil>=7.0",
+    "types-psutil>=7.2",
     "types-lxml>=2026.2",
 ]
 
